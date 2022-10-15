@@ -9,6 +9,31 @@ Description:
 <!DOCTYPE html>
 <html>
     <head>
+        <title>The Zoo</title>
+        <script>
+            /*
+            * Function: validateName()
+            * Parameter : none
+            * Returns value : userName - user's full name if valid
+            *                 null     - if the input is invalid 
+            * Description : This function checks if the user’s name is a valid input. 
+            * The name can be comprised of any characters. It can't be blank.
+            */
+            function validateName()
+            {
+                var characters = /^\S/ //regex
+                var userName = document.getElementById("userName").value;
+
+                if (userName.match(characters)) //validation
+                {
+                    return userName;
+                }
+                else
+                {
+                    return null; //invalid input
+                }
+            }
+        </script>
 
     </head>
     <body>
@@ -16,6 +41,7 @@ Description:
             <label for="name">Name:</label>
             <input name="name" id="userName" type="text" placeholder="Full Name" />
             <div id="errorName" style="color:red;"></div>
+            <input id="checkInput" type="button" value="Submit" onclick="validateName();"/>
             <label for="animal">Animals:</label>
             <select name="animal" id="animal">
                     <option value=""></option>
@@ -26,6 +52,7 @@ Description:
                     <option value="NB">Animal 5</option>
                     <option value="NB">Animal 6</option>
             </select>
+            <input type="submit" value="" onclick="">
         </form>
     </body>
 </html>
