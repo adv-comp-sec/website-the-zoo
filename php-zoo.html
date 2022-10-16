@@ -10,7 +10,7 @@ Description:
 <html>
     <head>
         <title>The Zoo</title>
-        <script>
+        <script type="text/javascript">
             /*
             * Function: validateName()
             * Parameter : none
@@ -33,6 +33,34 @@ Description:
                     return null; //invalid input
                 }
             }
+
+            /*
+            * Function: validateAnimal()
+            * Parameter : none
+            * Returns value : validAnimal = true - if user chooses an animal
+            *                 validAnimal = false - if blank
+            * Description : This function checks if the animal is a valid input. 
+            * It can't be blank.
+            */
+            function validateAnimal()
+            {
+                var characters = /^\S/
+                var animal = document.getElementById("animal").value;
+                var validAnimal = false;
+
+                if (animal.match(characters)) //validation
+                {
+                    validAnimal = true;
+                    return validAnimal;
+                }
+                else
+                {
+                    document.getElementById("errorAnimal").innerHTML="The animal can't be blank.";
+                    validAnimal = false;
+                    return validAnimal; //invalid input
+                }
+            }
+
         </script>
     </head>
     <body>
@@ -44,13 +72,14 @@ Description:
             <label for="animal">Animals:</label>
             <select name="animal" id="animal">
                     <option value=""></option>
-                    <option value="wolf">Wolf</option>
-                    <option value="orca">Orca</option>
-                    <option value="squirrel">Squirrel</option>
-                    <option value="elephant">Elephant</option>
-                    <option value="giraffe">Giraffe</option>
-                    <option value="lion">Lion</option>
+                    <option value="0">Wolf</option>
+                    <option value="1">Orca</option>
+                    <option value="2">Squirrel</option>
+                    <option value="3">Elephant</option>
+                    <option value="4">Giraffe</option>
+                    <option value="5">Lion</option>
             </select>
+            <div id="errorAnimal" style="color:red;"></div>
             <input type="submit" value="" onclick="">
         </form>
     </body>
