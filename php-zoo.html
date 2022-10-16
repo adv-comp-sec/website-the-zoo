@@ -15,8 +15,9 @@ Description:
             /*
             * Function: validateName()
             * Parameter : none
-            * Returns value : userName - user's full name if valid
-            *                 null     - if the input is invalid 
+            * Returns value : validName: boolean
+            *                 false - invalid input
+            *                 true - valid input
             * Description : This function checks if the user’s name is a valid input. 
             * The name can be comprised of any characters. It can't be blank.
             */
@@ -24,14 +25,17 @@ Description:
             {
                 var characters = /^\S/ //regex
                 var userName = document.getElementById("userName").value;
+                var validName = false;
 
                 if (userName.match(characters)) //validation
                 {
-                    return userName;
+                    validName = true;
+                    return validName;
                 }
                 else
                 {
-                    return null; //invalid input
+                    validName = false;
+                    return validName;
                 }
             }
 
@@ -53,6 +57,7 @@ Description:
                 if (validInput)
                 {
                     document.getElementById("errorName").innerHTML=""; //clean error message
+                    document.getElementById("user").style.display="none";
                     document.getElementById("animalsList").style.display="block";
                 }
                 else
@@ -93,10 +98,12 @@ Description:
     </head>
     <body>
         <form name="zooForm" action="" method="POST">
-            <label for="name">Name:</label>
-            <input name="name" id="userName" type="text" placeholder="Full Name" />
-            <div id="errorName" style="color:red;"></div>
-            <input id="checkInput" type="button" value="Submit" onclick="validateName();"/>
+            <div name="user" id="user">
+                <label for="name">Name:</label>
+                <input name="name" id="userName" type="text" placeholder="Full Name" />
+                <div id="errorName" style="color:red;"></div>
+                <input id="checkInput" type="button" value="Submit" onclick="displayOptions();"/>
+            </div>
             <div name="animalsList" id="animalsList" style="display: none;">
                 <label for="animal">Animals:</label>
                 <select name="animal" id="animal">
