@@ -90,9 +90,34 @@ Description:
                 }
                 else
                 {
-                    document.getElementById("errorAnimal").innerHTML="The animal can't be blank."; //display error message
                     validAnimal = false;
                     return validAnimal; //invalid input
+                }
+            }
+
+            /*
+            * Function: submitForm()
+            * Parameter : none
+            * Returns value : validForm = true - if user input is valid
+            *                 validAnimal = false - if input is blank
+            * Description : This function checks if the input are valid before submit the form.
+            */
+            function submitForm()
+            {
+                var validInput = validateAnimal();
+                var validForm = false;
+
+                if (validInput) //check for a valid input
+                {
+                    document.getElementById("errorAnimal").innerHTML=""; //clean error message
+                    validForm = true;
+                    return validForm;
+                }
+                else
+                {
+                    document.getElementById("errorAnimal").innerHTML="The animal can't be blank."; //display error message
+                    validForm = false; //invalid input
+                    return validForm;
                 }
             }
 
@@ -112,7 +137,7 @@ Description:
         <div name="form" id="form">
             <fieldset>
                 <legend>Register to the Zoo</legend>
-                <form name="zooForm" action="" method="POST">
+                <form name="zooForm" action="animals.php" method="POST" onsubmit="return submitForm()">
                     <div name="user" id="user">
                         <p>What's your name?</p>
                         <label for="name">Name:</label>
@@ -131,7 +156,7 @@ Description:
                                 <option value="4">Giraffe</option>
                                 <option value="5">Lion</option>
                             </select>
-                        <input type="submit" value="" onclick="">
+                        <input type="submit" value="Check on animal">
                         <div id="errorAnimal" style="color:red;"></div>
                     </div>
                 </form>
