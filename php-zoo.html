@@ -82,6 +82,7 @@ Description:
                 var characters = /^\S/
                 var animal = document.getElementById("animal").value;
                 var validAnimal = false;
+                document.getElementById("errorAnimal").innerHTML="";
 
                 if (animal.match(characters)) //validation
                 {
@@ -148,13 +149,13 @@ Description:
                         <div name="animalsList" id="animalsList" style="display: none;">
                             <label for="animal">Animals:</label>
                             <select name="animal" id="animal">
-                                <option value=""></option>
-                                <option value="0">Wolf</option>
-                                <option value="1">Orca</option>
-                                <option value="2">Squirrel</option>
-                                <option value="3">Elephant</option>
-                                <option value="4">Giraffe</option>
-                                <option value="5">Lion</option>
+                                <option value="none"></option>
+                                <option value="wolf">Wolf</option>
+                                <option value="orca">Orca</option>
+                                <option value="sqrl">Squirrel</option>
+                                <option value="elph">Elephant</option>
+                                <option value="grff">Giraffe</option>
+                                <option value="lion">Lion</option>
                             </select>
                         <input type="submit" value="Check on animal">
                         <div id="errorAnimal" style="color:red;"></div>
