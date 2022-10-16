@@ -56,8 +56,10 @@ Description:
                 
                 if (validInput)
                 {
+                    var userName = document.getElementById("userName").value;
                     document.getElementById("errorName").innerHTML=""; //clean error message
-                    document.getElementById("user").style.display="none";
+                    document.getElementById("user").innerHTML="Welcome to our virtual Zoo, " + userName + 
+                                                               "! </br> Choose one of the animals in the list to know more about it. ";
                     document.getElementById("animalsList").style.display="block";
                 }
                 else
@@ -97,27 +99,32 @@ Description:
         </script>
     </head>
     <body>
-        <form name="zooForm" action="" method="POST">
-            <div name="user" id="user">
-                <label for="name">Name:</label>
-                <input name="name" id="userName" type="text" placeholder="Full Name" />
-                <div id="errorName" style="color:red;"></div>
-                <input id="checkInput" type="button" value="Submit" onclick="displayOptions();"/>
-            </div>
-            <div name="animalsList" id="animalsList" style="display: none;">
-                <label for="animal">Animals:</label>
-                <select name="animal" id="animal">
-                    <option value=""></option>
-                    <option value="0">Wolf</option>
-                    <option value="1">Orca</option>
-                    <option value="2">Squirrel</option>
-                    <option value="3">Elephant</option>
-                    <option value="4">Giraffe</option>
-                    <option value="5">Lion</option>
-                </select>
-            <div id="errorAnimal" style="color:red;"></div>
-            <input type="submit" value="" onclick="">
-            </div>
-        </form>
+        <div name="description" id="description">
+
+        </div>
+        <div name="form" id="form">
+            <form name="zooForm" action="" method="POST">
+                <div name="user" id="user">
+                    <label for="name">Name:</label>
+                    <input name="name" id="userName" type="text" placeholder="Full Name" />
+                    <div id="errorName" style="color:red;"></div>
+                    <input id="checkInput" type="button" value="Submit" onclick="displayOptions();"/>
+                </div>
+                    <div name="animalsList" id="animalsList" style="display: none;">
+                        <label for="animal">Animals:</label>
+                        <select name="animal" id="animal">
+                            <option value=""></option>
+                            <option value="0">Wolf</option>
+                            <option value="1">Orca</option>
+                            <option value="2">Squirrel</option>
+                            <option value="3">Elephant</option>
+                            <option value="4">Giraffe</option>
+                            <option value="5">Lion</option>
+                        </select>
+                    <div id="errorAnimal" style="color:red;"></div>
+                    <input type="submit" value="" onclick="">
+                </div>
+            </form>
+        </div>
     </body>
 </html>
