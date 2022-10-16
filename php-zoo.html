@@ -11,6 +11,7 @@ Description:
     <head>
         <title>The Zoo</title>
         <script type="text/javascript">
+                    
             /*
             * Function: validateName()
             * Parameter : none
@@ -35,6 +36,33 @@ Description:
             }
 
             /*
+            * Function: displayOptions()
+            * Parameter : none
+            * Returns value : none
+            * Output:
+            *        validInput = false - display error message for user name
+            *        validInput = true - display form to choose an animal and the submit button
+            *           
+            * Description : This function checks if the user’s name is a valid input. 
+            * The name can be comprised of any characters. It can't be blank.
+            */
+            function displayOptions()
+            {
+                validInput = validateName();
+                
+                if (validInput)
+                {
+                    document.getElementById("errorName").innerHTML=""; //clean error message
+                    document.getElementById("animalsList").style.display="block";
+                }
+                else
+                {
+                    document.getElementById("errorName").innerHTML="The user name can't be blank."; //display error message
+                }
+            }
+
+
+            /*
             * Function: validateAnimal()
             * Parameter : none
             * Returns value : validAnimal = true - if user chooses an animal
@@ -55,7 +83,7 @@ Description:
                 }
                 else
                 {
-                    document.getElementById("errorAnimal").innerHTML="The animal can't be blank.";
+                    document.getElementById("errorAnimal").innerHTML="The animal can't be blank."; //display error message
                     validAnimal = false;
                     return validAnimal; //invalid input
                 }
@@ -69,8 +97,9 @@ Description:
             <input name="name" id="userName" type="text" placeholder="Full Name" />
             <div id="errorName" style="color:red;"></div>
             <input id="checkInput" type="button" value="Submit" onclick="validateName();"/>
-            <label for="animal">Animals:</label>
-            <select name="animal" id="animal">
+            <div name="animalsList" id="animalsList" style="display: none;">
+                <label for="animal">Animals:</label>
+                <select name="animal" id="animal">
                     <option value=""></option>
                     <option value="0">Wolf</option>
                     <option value="1">Orca</option>
@@ -78,9 +107,10 @@ Description:
                     <option value="3">Elephant</option>
                     <option value="4">Giraffe</option>
                     <option value="5">Lion</option>
-            </select>
+                </select>
             <div id="errorAnimal" style="color:red;"></div>
             <input type="submit" value="" onclick="">
+            </div>
         </form>
     </body>
 </html>
