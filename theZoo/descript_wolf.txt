@@ -1,4 +1,3 @@
-<h1>Wolf</h1>
 <h3>Scientific name:</h3>
 <p>Canis lupus</p>
 <h3>Habitat:</h3>
