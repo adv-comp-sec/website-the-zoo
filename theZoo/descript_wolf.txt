@@ -1,1 +1,9 @@
-This is a wolf.
+<h1>Wolf</h1>
+<h3>Scientific name:</h3>
+<p>Canis lupus</p>
+<h3>Habitat:</h3>
+<p>Eurasia and North America</p>
+<h3>Diet habits:</h3>
+<p>Predatory carnivorous</p>
+<h3>Movie:</h3>
+<p>The Jungle Book</p>
