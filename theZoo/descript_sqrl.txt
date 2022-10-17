@@ -1,0 +1,8 @@
+<h3>Scientific name:</h3>
+<p>Sciurus</p>
+<h3>Habitat:</h3>
+<p>Almost every habitat, from tropical rainforest to semiarid desert, avoiding only the high polar regions and the driest of deserts</p>
+<h3>Diet habits:</h3>
+<p>Primarily herbivores</p>
+<h3>Movie:</h3>
+<p>Alvin and the Chipmunks</p>

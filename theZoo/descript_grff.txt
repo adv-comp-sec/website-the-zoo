@@ -1,0 +1,8 @@
+<h3>Scientific name:</h3>
+<p>Giraffa camelopardalis</p>
+<h3>Habitat:</h3>
+<p>Savannahs and open woodlands</p>
+<h3>Diet habits:</h3>
+<p>Herbivorous</p>
+<h3>Movie:</h3>
+<p>Madagascar</p>

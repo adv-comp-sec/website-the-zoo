@@ -1,0 +1,8 @@
+<h3>Scientific name:</h3>
+<p>Orcinus orca</p>
+<h3>Habitat:</h3>
+<p>Prefer higher latitudes and coastal areas over pelagic environments</p>
+<h3>Diet habits:</h3>
+<p>Orcas hunt varied prey including fish, cephalopods, mammals, seabirds, and sea turtles.</p>
+<h3>Movie:</h3>
+<p>Free Willy</p>

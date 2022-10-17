@@ -1,0 +1,8 @@
+<h3>Scientific name:</h3>
+<p>Elephas</p>
+<h3>Habitat:</h3>
+<p>Sub-Saharan Africa, South Asia, and Southeast Asia</p>
+<h3>Diet habits:</h3>
+<p>Herbivorous</p>
+<h3>Movie:</h3>
+<p>Dumbo</p>

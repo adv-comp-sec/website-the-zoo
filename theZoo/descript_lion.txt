@@ -1,0 +1,8 @@
+<h3>Scientific name:</h3>
+<p>Panthera leo</p>
+<h3>Habitat:</h3>
+<p>Grasslands, savannas and shrublands</p>
+<h3>Diet habits:</h3>
+<p>Generalist hypercarnivore</p>
+<h3>Movie:</h3>
+<p>The Lion King</p>
