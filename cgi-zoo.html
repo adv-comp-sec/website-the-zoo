@@ -1,0 +1,178 @@
+<!--
+Filename: cgi-zoo.html
+Project: wdd-a03
+Date: October 16th, 2022
+Author: Maísa Wolff Resplande and Hyewon Lee
+Description: This file contains the form to register to the Zoo and choose an animal.
+-->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>The Movies Zoo</title>
+        <script type="text/javascript">
+                    
+            /*
+            * Function: validateName()
+            * Parameter : none
+            * Returns value : validName: boolean
+            *                 false - invalid input
+            *                 true - valid input
+            * Description : This function checks if the user’s name is a valid input. 
+            * The name can be comprised of any characters. It can't be blank.
+            */
+            function validateName()
+            {
+                var characters = /^\S/ //regex
+                var userName = document.getElementById("userName").value;
+                var validName = false;
+
+                if (userName.match(characters)) //validation
+                {
+                    validName = true;
+                    return validName;
+                }
+                else
+                {
+                    validName = false;
+                    return validName;
+                }
+            }
+
+            /*
+            * Function: displayOptions()
+            * Parameter : none
+            * Returns value : none
+            * Output:
+            *        validInput = false - display error message for user name
+            *        validInput = true - display form to choose an animal and the submit button
+            *           
+            * Description : This function checks if the user’s name is a valid input. 
+            * The name can be comprised of any characters. It can't be blank.
+            */
+            function displayOptions()
+            {
+                validInput = validateName();
+                
+                if (validInput)
+                {
+                    var userName = document.getElementById("userName").value;
+                    document.getElementById("errorName").innerHTML=""; //clean error message
+                    document.getElementById("user").innerHTML="Welcome to our virtual Zoo, " + userName + 
+                                                               "! </br> Choose one of the animals in the list to know more about it. ";
+                    document.getElementById("animalsList").style.display="block";
+                }
+                else
+                {
+                    document.getElementById("errorName").innerHTML="The user name can't be blank."; //display error message
+                }
+            }
+
+
+            /*
+            * Function: validateAnimal()
+            * Parameter : none
+            * Returns value : validAnimal = true - if user chooses an animal
+            *                 validAnimal = false - if blank
+            * Description : This function checks if the animal is a valid input. 
+            * It can't be blank.
+            */
+            function validateAnimal()
+            {
+                var characters = /^\S/
+                var animal = document.getElementById("animal").value;
+                var validAnimal = false;
+                document.getElementById("errorAnimal").innerHTML="";
+
+                if (animal.match(characters)) //validation
+                {
+                    validAnimal = true;
+                    return validAnimal;
+                }
+                else
+                {
+                    validAnimal = false;
+                    return validAnimal; //invalid input
+                }
+            }
+
+            /*
+            * Function: submitForm()
+            * Parameter : none
+            * Returns value : validForm = true - if user input is valid
+            *                 validAnimal = false - if input is blank
+            * Description : This function checks if the input are valid before submit the form.
+            */
+            function submitForm()
+            {
+                var validInput = validateAnimal();
+                var validForm = false;
+
+                if (validInput) //check for a valid input
+                {
+                    document.getElementById("errorAnimal").innerHTML=""; //clean error message
+                    validForm = true;
+                    return validForm;
+                }
+                else
+                {
+                    document.getElementById("errorAnimal").innerHTML="The animal can't be blank."; //display error message
+                    validForm = false; //invalid input
+                    return validForm;
+                }
+            }
+
+        </script>
+
+        <style>
+            body {
+                background-color: #F0F8FF;
+                display: flex;
+                height: 100vh;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+            }
+        </style>
+    </head>
+    <body>
+        <div name="description" id="description">
+            <h1>The Movies Zoo</h1>
+            <p>
+                Hello!
+                </br>
+                In our Zoo, you can check on some animals that got popular because of movies, series, and cartoons.
+                </br>
+                Find out their scientific names, where they live, what they eat, and what premiere made them superstars!
+            </p>
+        </div>
+        <div name="form" id="form">
+            <fieldset>
+                <legend>Register to the Zoo</legend>
+                <form name="zooForm" action="animals.php" method="POST" onsubmit="return submitForm()">
+                    <div name="user" id="user">
+                        <p>What's your name?</p>
+                        <label for="name">Name:</label>
+                        <input name="name" id="userName" type="text" placeholder="Name" />
+                        <input id="checkInput" type="button" value="Submit" onclick="displayOptions();"/>
+                        <div id="errorName" style="color:red;"></div>
+                    </div>
+                        <div name="animalsList" id="animalsList" style="display: none;">
+                            <label for="animal">Animals:</label>
+                            <select name="animal" id="animal">
+                                <option value="none"></option>
+                                <option value="wolf">Wolf</option>
+                                <option value="orca">Orca</option>
+                                <option value="sqrl">Squirrel</option>
+                                <option value="elph">Elephant</option>
+                                <option value="grff">Giraffe</option>
+                                <option value="lion">Lion</option>
+                            </select>
+                        <input type="submit" value="Check on animal">
+                        <div id="errorAnimal" style="color:red;"></div>
+                    </div>
+                </form>
+            </fieldset>
+        </div>
+    </body>
+</html>
