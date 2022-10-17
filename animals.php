@@ -24,6 +24,8 @@
     </head>
     <body>
         <?php
+        $name = $_POST['name'];
+
         if ($_POST['animal'] === "wolf")
         {
             $animal = "Wolf"; 
@@ -70,6 +72,7 @@
             </div>
     
             <div id="description">
+                <h1> Hello, <?php echo $name ?> <br> <h1>
                 <h1> You choose <?php echo $animal ?> </h1>
                 <?php 
                     $myfile = fopen($description, "r") or die("Unable to open file!");

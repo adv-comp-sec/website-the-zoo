@@ -11,7 +11,8 @@ Description: This file contains the form to register to the Zoo and choose an an
     <head>
         <title>The Movies Zoo</title>
         <script type="text/javascript">
-                    
+            let name = "";
+        
             /*
             * Function: validateName()
             * Parameter : none
@@ -24,10 +25,9 @@ Description: This file contains the form to register to the Zoo and choose an an
             function validateName()
             {
                 var characters = /^\S/ //regex
-                var userName = document.getElementById("userName").value;
+                name = document.getElementById("name").value;
                 var validName = false;
-
-                if (userName.match(characters)) //validation
+                if (name.match(characters)) //validation
                 {
                     validName = true;
                     return validName;
@@ -56,9 +56,10 @@ Description: This file contains the form to register to the Zoo and choose an an
                 
                 if (validInput)
                 {
-                    var userName = document.getElementById("userName").value;
+        
                     document.getElementById("errorName").innerHTML=""; //clean error message
-                    document.getElementById("user").innerHTML="Welcome to our virtual Zoo, " + userName + 
+                    document.getElementById("getUserName").style.display = "none";
+                    document.getElementById("greeting").innerHTML="Welcome to our virtual Zoo, " + name + 
                                                                "! </br> Choose one of the animals in the list to know more about it. ";
                     document.getElementById("animalsList").style.display="block";
                 }
@@ -150,27 +151,27 @@ Description: This file contains the form to register to the Zoo and choose an an
             <fieldset>
                 <legend>Register to the Zoo</legend>
                 <form name="zooForm" action="animals.php" method="POST" onsubmit="return submitForm()">
-                    <div name="user" id="user">
+                    <div name="getUserName" id="getUserName">
                         <p>What's your name?</p>
                         <label for="name">Name:</label>
-                        <input name="name" id="userName" type="text" placeholder="Name" />
+                        <input name="name" id="name" type="text" placeholder="Name" />
                         <input id="checkInput" type="button" value="Submit" onclick="displayOptions();"/>
                         <div id="errorName" style="color:red;"></div>
                     </div>
-                        <div name="animalsList" id="animalsList" style="display: none;">
-                            <label for="animal">Animals:</label>
-                            <select name="animal" id="animal">
-                                <option value="none"></option>
-                                <option value="wolf">Wolf</option>
-                                <option value="orca">Orca</option>
-                                <option value="sqrl">Squirrel</option>
-                                <option value="elph">Elephant</option>
-                                <option value="grff">Giraffe</option>
-                                <option value="lion">Lion</option>
-                            </select>
-                        <input type="submit" value="Check on animal">
-                        <div id="errorAnimal" style="color:red;"></div>
-                    </div>
+                    <div name="animalsList" id="animalsList" style="display: none;">
+                        <p id="greeting"></p>
+                        <label for="animal">Animals:</label>
+                        <select name="animal" id="animal">
+                            <option value=""></option>
+                            <option value="wolf">Wolf</option>
+                            <option value="orca">Orca</option>
+                            <option value="sqrl">Squirrel</option>
+                            <option value="elph">Elephant</option>
+                            <option value="grff">Giraffe</option>
+                            <option value="lion">Lion</option>
+                        </select>
+                    <input type="submit" value="Check on animal">
+                    <div id="errorAnimal" style="color:red;"></div>
                 </form>
             </fieldset>
         </div>
