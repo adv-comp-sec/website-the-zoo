@@ -4,11 +4,14 @@
         <title>Animal</title>
 
         <style>
+            body {
+                background-color: #F0F8FF;
+            }
+
             .content {
                 display: flex;
                 flex-direction: row;
                 justify-content: center;
-                padding: 10px;
                 align-items: center;
             }
 
