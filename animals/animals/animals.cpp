@@ -1,14 +1,18 @@
+/*
+Filename: animals.cpp
+Project: wdd-a03
+Date: October 17th, 2022
+Author: Maísa Wolff Resplande and Hyewon Lee
+Description: This file contains the form to register to the Zoo and choose an animal.
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #pragma warning(disable : 4996)
 #pragma warning(disable : 6001)
 
-/* ---------------------------------------------------------------------------------------------------------
-	Since we've passed the parameters into this CGI application using the GET method - we can access the
-	parameters and values passed in using the QUERY_STRING environment variable - remembering
-	that we need to parse the parameters and their values out as "key-value" pairs
-   --------------------------------------------------------------------------------------------------------- */
+// constants
 #define kNameLength	50
 #define kAnimalLength 5
 #define kAddressLength 50
@@ -20,9 +24,9 @@ int main(void)
 	char name[kNameLength];				// user name
 	char animal[kAnimalLength];			// animal code choose by user
 	char animalName[kAnimalLength];					// animal name
-	char descriptionAddress[kAddressLength];
+	char descriptionAddress[kAddressLength];		// the address of the description text file
 
-	printf("Content-type:text/html\r\n\r\n"); // output MIME header
+	printf("Content-type:text/html\r\n\r\n");
 
 	printf("<html>");
 	printf("<head>");
@@ -45,6 +49,7 @@ int main(void)
 		return -1;
 	}
 
+	// change the blank character '+' into ' '
 	char* changeBlank = strchr(name, '+');
 	*changeBlank = ' ';
 
@@ -84,11 +89,14 @@ int main(void)
 		return -1;
 	}
 
+	// the presenting part
+	// the image of the animal
 	printf("<div class = \"content\">");
 	printf("<div id = \"image\">");
 	printf("<img src='./theZoo/image_%s.jpg' alt='%s' width=400 height=400><br>", animal, animalName);
 	printf("</div>");
 
+	// the description of the animal
 	printf("<div id = \"description\">");
 	printf("<h1> Hello, %s <br> <h1>", name);
 	printf("<h1> You choose %s </h1>", animalName);
